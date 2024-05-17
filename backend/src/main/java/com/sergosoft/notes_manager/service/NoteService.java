@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface NoteService {
     List<NoteEntity> getAllNotes();
     NoteEntity saveNote(NoteDto noteDto);
+    NoteEntity updateNoteById(Long id, NoteDto noteDto);
     Optional<NoteEntity> getNoteById(Long id);
     boolean deleteNoteById(Long id);
+
 }
