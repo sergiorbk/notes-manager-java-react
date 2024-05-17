@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NoteServiceImpl implements NoteService {
@@ -30,5 +31,20 @@ public class NoteServiceImpl implements NoteService {
     @Override
     public NoteEntity saveNote(NoteDto noteDto) {
         return noteRepository.save(noteTransformer.toEntity(noteDto));
+    }
+
+    @Override
+    public Optional<NoteEntity> getNoteById(Long id) {
+        return noteRepository.findById(id);
+    }
+
+    @Override
+    public boolean deleteNoteById(Long id) {
+        if(noteRepository.existsById(id)) {
+            noteRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
