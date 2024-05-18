@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sergosoft</groupId>
-	<artifactId>notes_manager</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>notes-manager</artifactId>
+	<version>1.0.0</version>
 	<name>Notes Manager</name>
 	<description>Notes Manager WEB application based on Java, Spring Boot and React</description>
 	<properties>
