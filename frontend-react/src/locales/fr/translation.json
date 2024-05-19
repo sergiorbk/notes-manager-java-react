@@ -1,0 +1,16 @@
+{
+  "appName": "Gestionnaire de notes",
+  "noteListTitle": "Liste de notes",
+  "loading": "Chargement...",
+  "title": "Titre",
+  "note": "Constater",
+  "actions": "Actes",
+  "update": "Mise à jour",
+  "add": "Ajouter",
+  "addNewNote": "Ajouter une nouvelle note",
+  "cancel": "Annuler",
+  "change": "Changement",
+  "delete": "Supprimer",
+  "editNote": "Note éditée",
+  "save": "Sauvegarder"
+}

@@ -1,0 +1,16 @@
+{
+  "appName": "Note Manager",
+  "noteListTitle": "Note List",
+  "loading": "Loading...",
+  "title": "Title",
+  "note": "Note",
+  "actions": "Actions",
+  "update": "Update",
+  "add": "Add",
+  "addNewNote": "Add a New Note",
+  "cancel": "Cancel",
+  "change": "Change",
+  "delete": "Delete",
+  "editNote": "Edit Note",
+  "save": "Save"
+}
