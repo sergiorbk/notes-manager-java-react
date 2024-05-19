@@ -105,7 +105,7 @@ export function NoteList() {
             </div>
             <div className="button-panel">
                 <button onClick={fetchNotes}>{t('update')}</button>
-                <button onClick={() => setShowAddForm(true)}>{t('add')}</button>
+                <button className="add-note-button" onClick={() => setShowAddForm(true)}>{t('add')}</button>
             </div>
             {showAddForm && (
                 <AddNoteForm
