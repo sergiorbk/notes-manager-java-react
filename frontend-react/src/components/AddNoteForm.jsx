@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import '../styles/AddNoteForm.scss';
+import {useTranslation} from "react-i18next";
 
 const AddNoteForm = ({ onAdd, onCancel }) => {
+    const { t } = useTranslation();
     const [title, setTitle] = useState('');
     const [note, setNote] = useState('');
 
@@ -17,9 +19,9 @@ const AddNoteForm = ({ onAdd, onCancel }) => {
     return (
         <div className="add-note-form-container">
             <form className="add-note-form" onSubmit={handleSubmit}>
-                <h2>Add a New Note</h2>
+                <h2>{t('addNewNote')}</h2>
                 <div className="form-group">
-                    <label htmlFor="title">Title:</label>
+                    <label htmlFor="title">{t('title')}</label>
                     <input
                         type="text"
                         id="title"
@@ -29,7 +31,7 @@ const AddNoteForm = ({ onAdd, onCancel }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="note">Note:</label>
+                    <label htmlFor="note">{t('note')}</label>
                     <textarea
                         id="note"
                         value={note}
@@ -38,8 +40,8 @@ const AddNoteForm = ({ onAdd, onCancel }) => {
                     ></textarea>
                 </div>
                 <div className="form-buttons">
-                    <button type="submit" className="add-button">Add</button>
-                    <button type="button" className="cancel-button" onClick={onCancel}>Cancel</button>
+                    <button type="submit" className="add-button">{t('add')}</button>
+                    <button type="button" className="cancel-button" onClick={onCancel}>{t('cancel')}</button>
                 </div>
             </form>
         </div>

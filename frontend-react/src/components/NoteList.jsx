@@ -3,6 +3,7 @@ import axios from 'axios';
 import AddNoteForm from './AddNoteForm';
 import EditNoteForm from './EditNoteForm';
 import '../styles/NoteList.scss';
+import {useTranslation} from "react-i18next";
 
 export function NoteList() {
     const [notes, setNotes] = useState([]);
@@ -10,6 +11,8 @@ export function NoteList() {
     const [error, setError] = useState(null);
     const [showAddForm, setShowAddForm] = useState(false);
     const [editingNote, setEditingNote] = useState(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         fetchNotes();
@@ -31,7 +34,7 @@ export function NoteList() {
 
     const handleDelete = (id) => {
         axios.delete(`http://localhost:8080/notes/${id}`)
-            .then(response => {
+            .then(() => {
                 setNotes(notes.filter(note => note.id !== id));
             })
             .catch(error => {
@@ -56,7 +59,7 @@ export function NoteList() {
         axios.put(`http://localhost:8080/notes/${updatedNote.id}`, updatedNote)
             .then(response => {
                 setNotes(notes.map(note => (note.id === updatedNote.id ? response.data : note)));
-                setEditingNote(null); // Close the edit form
+                setEditingNote(null);
             })
             .catch(error => {
                 console.error('Error updating note:', error);
@@ -65,7 +68,7 @@ export function NoteList() {
     };
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <p>{t('loading')}</p>;
     }
 
     if (error) {
@@ -74,15 +77,15 @@ export function NoteList() {
 
     return (
         <div className="note-list-container">
-            <h1>Note List</h1>
+            <h1>{t('noteListTitle')}</h1>
             <div className="table-container">
                 <table className="note-table">
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Title</th>
-                        <th>Note</th>
-                        <th>Actions</th>
+                        <th>{t('title')}</th>
+                        <th>{t('note')}</th>
+                        <th>{t('actions')}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -92,8 +95,8 @@ export function NoteList() {
                             <td>{note.title}</td>
                             <td>{note.note}</td>
                             <td>
-                                <button onClick={() => setEditingNote(note)}>Change</button>
-                                <button onClick={() => handleDelete(note.id)}>Delete</button>
+                                <button onClick={() => setEditingNote(note)}>{t('change')}</button>
+                                <button onClick={() => handleDelete(note.id)}>{t('delete')}</button>
                             </td>
                         </tr>
                     ))}
@@ -101,8 +104,8 @@ export function NoteList() {
                 </table>
             </div>
             <div className="button-panel">
-                <button onClick={fetchNotes}>Update</button>
-                <button onClick={() => setShowAddForm(true)}>Add</button>
+                <button onClick={fetchNotes}>{t('update')}</button>
+                <button onClick={() => setShowAddForm(true)}>{t('add')}</button>
             </div>
             {showAddForm && (
                 <AddNoteForm
