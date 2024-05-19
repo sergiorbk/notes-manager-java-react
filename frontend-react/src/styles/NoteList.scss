@@ -1,0 +1,49 @@
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.note-list-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.note-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+.button-panel {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.button-panel button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.button-panel button:hover {
+  background-color: #0056b3;
+}

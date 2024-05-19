@@ -1,11 +1,13 @@
-import {NoteList} from "./components/NoteList";
+import React from 'react';
+import { NoteList } from './components/NoteList';
+import './styles/App.scss';
 
 function App() {
   return (
-      <>
-        <h1>Note Manager</h1>
+      <div className="app-container">
+          <h1>Note Manager</h1>
           <NoteList/>
-      </>
+      </div>
   );
 }
 
